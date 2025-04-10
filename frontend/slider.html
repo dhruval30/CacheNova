@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+  <link rel="stylesheet" href="slider.css">
+  <style>
+  body {
+    margin: 0;
+    font: normal 75% Arial, Helvetica, sans-serif;
+    justify-content: center;
+      align-items: center;
+  }
+
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+
+  /* ---- particles.js container ---- */
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #0a0a0a;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    z-index: 1;
+  }
+
+  /* ---- stats.js ---- */
+  .count-particles {
+    background: #000022;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 80px;
+    color: #13E8E9;
+    font-size: .8em;
+    text-align: left;
+    text-indent: 4px;
+    line-height: 14px;
+    padding-bottom: 2px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+  }
+
+  .js-count-particles {
+    font-size: 1.1em;
+  }
+
+  #stats,
+  .count-particles {
+    -webkit-user-select: none;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  #stats {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+  }
+
+  .count-particles {
+    border-radius: 0 0 3px 3px;
+  }
+  </style>
+</head>
+<body>
+  <a href="explore.html">
+  <button id="explore-button">Explore</button>
+</a>
+    <div id="page-wrapper">
+    <div id="particles-js"></div>
+    <div class="Part2">
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://threejs.org/examples/js/libs/stats.min.js"></script>
+
+<script>
+    // Define the number of sections and items per section
+    var numSections = 5;
+    var numItemsPerSection = 4;
+    
+    // Reference the parent container
+    var part2Container = document.querySelector('.Part2');
+
+    // Loop to create sections and items dynamically
+    for (var i = 1; i <= numSections; i++) {
+        var containerDiv = document.createElement('div');
+        containerDiv.classList.add('Container' + i);
+
+        var h1 = document.createElement('h1');
+        h1.textContent = 'Section ' + i;
+        containerDiv.appendChild(h1);
+
+        var buttonDiv = document.createElement('div');
+        buttonDiv.classList.add('Button');
+        var buttonP = document.createElement('p');
+
+
+
+        for (var j = 1; j <= numItemsPerSection; j++) {
+            var itemDiv = document.createElement('div');
+            itemDiv.classList.add('Item' + j);
+            var itemP = document.createElement('p');
+            itemP.textContent = 'Item ' + j;
+            itemDiv.appendChild(itemP);
+            containerDiv.appendChild(itemDiv);
+
+            // Add non-breaking space after each item except the last one
+            if (j < numItemsPerSection) {
+                containerDiv.appendChild(document.createTextNode('\u00A0\u00A0\u00A0'));
+            }
+        }
+
+        // Append the container to the parent container
+        part2Container.appendChild(containerDiv);
+    };
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 77,
+          "density": {
+            "enable": true,
+            "value_area": 320.4794372381079
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 2,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          },
+          "image": {
+            "src": "img/github.svg",
+            "width": 100,
+            "height": 100
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false,
+          "anim": {
+            "enable": true,
+            "speed": 6.411036721444516,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 4.005992965476349,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 56,
+            "size_min": 0,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 128.19177489524316,
+          "color": "#ffffff",
+          "opacity": 0.41662326840954034,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 6089.109307524051,
+            "rotateY": 5287.910714428781
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 133.90139987827155,
+            "line_linked": {
+              "opacity": 0.6330310678494211
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 56.806654493812175,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Stats initialization
+    var count_particles, stats, update;
+    stats = new Stats();
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+
+    // Update particle count
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+      stats.begin();
+      stats.end();
+      if (window.pJSDom && window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+      }
+      requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+</script>
+
+<script src="slider.js"></script>
+
+</body>
+</html>

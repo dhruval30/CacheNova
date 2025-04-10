@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Status</title>
+  <link rel="stylesheet" href="status.css">
+</head>
+<body>
+  <div class="header">Back-End Log</div>
+
+  <script>
+    // Define the demo data directly in the HTML
+    var demoData = [
+      { "name": "Field 1", "code": "ABC123" },
+      { "name": "Field 2", "code": "XYZ456" },
+      { "name": "Field 3", "code": "DEF789" },
+      // Add more data as needed
+    ];
+
+    // Function to update cards with the demo data
+    function updateCards() {
+      var container = document.body;
+
+      container.innerHTML = '<div class="header">Back-End Log</div>';
+
+      var row; // Initialize the row outside the loop
+
+      demoData.forEach((item, index) => {
+        if (index % 6 === 0) {
+          row = document.createElement('div');
+          row.classList.add('row');
+          container.appendChild(row);
+        }
+
+        var card = document.createElement('div');
+        card.classList.add('card');
+
+        var iconContainer = document.createElement('div');
+        iconContainer.classList.add('icon-container');
+
+        var loadingIcon = document.createElement('div');
+        loadingIcon.classList.add('loading-icon', 'pendulum');
+        iconContainer.appendChild(loadingIcon);
+
+        var doneIcon = document.createElement('div');
+        doneIcon.classList.add('done-icon');
+        doneIcon.innerHTML = '<i class="fas fa-check"></i>'; // Font Awesome checkmark icon
+        iconContainer.appendChild(doneIcon);
+
+        var description = document.createElement('div');
+        description.classList.add('description');
+
+        var name = document.createElement('div');
+        name.classList.add('name');
+        name.textContent = item.name;
+
+        var code = document.createElement('code');
+        code.textContent = item.code;
+
+        description.appendChild(iconContainer);
+        description.appendChild(name);
+        description.appendChild(code);
+
+        card.appendChild(description);
+        row.appendChild(card);
+
+        // Simulate completion after pendulum animation ends
+        setTimeout(() => {
+          loadingIcon.style.display = 'none'; // Hide loading icon
+          doneIcon.style.display = 'block'; // Show done icon
+        }, 1600); // 1.6 seconds, matching the pendulum animation duration
+      });
+    }
+
+    // Call the function to update cards on page load
+    updateCards();
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extensive Topic Navigation</title>
+    <link rel="stylesheet" href="explore.css">
+    
+</head>
+<body>
+    <h1 class="neon-text">Expanse</h1>
+    <div id="navigation-container" class="navigation-container">
+        <!-- Dynamic content will be inserted here -->
+    </div>
+
+    <script>
+        // This would be the JSON data you get from the Python script
+        // For demonstration purposes, it's hard-coded here
+const jsonData = '[{"title": "Section 1", "items": ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8", "Item 9", "Item 10", "Item 11", "Item 12", "Item 13", "Item 14", "Item 15", "Item 16", "Item 17", "Item 18", "Item 19", "Item 20", "Item 21", "Item 22", "Item 23", "Item 24", "Item 25", "Item 26", "Item 27", "Item 28", "Item 29", "Item 30"]},{"title": "Section 2", "items": ["Item A", "Item B", "Item C", "Item D", "Item E", "Item F", "Item G", "Item H", "Item I", "Item J"]},{"title": "Section 3", "items": ["Item X", "Item Y", "Item Z", "Item P", "Item Q", "Item R", "Item S", "Item T", "Item U", "Item V"]},{"title": "Section 4", "items": ["Item Alpha", "Item Beta", "Item Gamma", "Item Delta", "Item Epsilon", "Item Zeta", "Item Eta", "Item Theta", "Item Iota", "Item Kappa"]}]';
+        
+        // Parse the JSON data
+        const sectionsData = JSON.parse(jsonData);
+
+        // Function to create section HTML
+        function createSectionHtml(section) {
+            const sectionElement = document.createElement('div');
+            sectionElement.className = 'nav-section';
+
+            const titleElement = document.createElement('h2');
+            titleElement.className = 'nav-title';
+            titleElement.textContent = section.title;
+
+            const listElement = document.createElement('ul');
+            listElement.className = 'nav-items';
+            
+            section.items.forEach(item => {
+                const itemElement = document.createElement('li');
+                itemElement.textContent = item;
+                listElement.appendChild(itemElement);
+            });
+
+            sectionElement.appendChild(titleElement);
+            sectionElement.appendChild(listElement);
+
+            return sectionElement;
+        }
+
+        // Function to render all sections
+        function renderSections(sections) {
+            const container = document.getElementById('navigation-container');
+            sections.forEach(section => {
+                container.appendChild(createSectionHtml(section));
+            });
+        }
+
+        // Call renderSections to insert the sections into the DOM
+        renderSections(sectionsData);
+    </script>
+</body>
+</html>

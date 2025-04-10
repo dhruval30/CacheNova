@@ -1,0 +1,154 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,400italic);
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  margin: 100px;
+  background: #171717;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  border-left: 5px solid #ddd;
+  border-right: 5px solid #ddd;
+  text-align: center;
+}
+
+.header {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.16);
+  background: #171717;
+  width: calc(16.666% - 40px);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.card .icon-container {
+  width: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 16px;
+}
+
+.card .description {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 4px;
+}
+
+.card .description .name {
+  font-weight: bold;
+  font-size: 1em;
+  padding-bottom: 8px;
+}
+
+.card .description .name span {
+  font-size: 0.7em;
+  font-weight: normal;
+  font-style: italic;
+  color: #888;
+}
+
+.loading-icon {
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  border: 0.15rem solid #ddd;
+  border-top-color: #333;
+  display: inline-block;
+  margin: 0 8px;
+  position: absolute;
+  right: 16px;
+  top: 30%;
+  transform: translateY(-50%);
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  animation:pendulum 10s ease-in-out forwards;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.done-icon {
+  display: none;
+}
+.done-icon .fa-check{
+  color: green;
+}
+
+.pendulum {
+  -webkit-animation-timing-function: cubic-bezier(0.5, 0.8, 0.5, 0.2);
+  animation-timing-function: cubic-bezier(0.5, 0.8, 0.5, 0.2);
+  animation-duration: 1.6s;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  body {
+    margin: 20px; /* Adjust margin for smaller screens */
+  }
+}
+
+@keyframes pendulum {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+.done-icon .fa-check {
+  color: green;
+}

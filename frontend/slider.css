@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; /* Fallback font */
+}
+
+.Part2 {
+  min-height: 100vh; /* Set minimum height to viewport height */
+  display: flex;
+  flex-direction: column; /* Stack containers vertically */
+  align-items: center; /* Center containers horizontally */
+  justify-content: center; /* Center containers vertically */
+  position: relative; /* Allows z-index to work */
+  z-index: 2;
+}
+
+.Container1, .Container2, .Container3, .Container4, .Container5 {
+  margin-top: 50px; /* Adjust spacing between sections */
+  color: white;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+}
+
+.Container1 .Button, .Container2 .Button, .Container3 .Button, .Container4 .Button, .Container5 .Button,
+.Container1 .Item1, .Container2 .Item1, .Container3 .Item1, .Container4 .Item1, .Container5 .Item1,
+.Container1 .Item2, .Container2 .Item2, .Container3 .Item2, .Container4 .Item2, .Container5 .Item2,
+.Container1 .Item3, .Container2 .Item3, .Container3 .Item3, .Container4 .Item3, .Container5 .Item3,
+.Container1 .Item4, .Container2 .Item4, .Container3 .Item4, .Container4 .Item4, .Container5 .Item4 {
+  padding-left: 5px;
+  border: 2px solid black;
+}
+
+.Container1 .Button:hover, .Container2 .Button:hover, .Container3 .Button:hover, .Container4 .Button:hover, .Container5 .Button:hover {
+  padding-left: 5px;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  box-shadow: 1px 1px 8px silver;
+  animation: anime 10s linear infinite iteration-count direction fill-mode;
+}
+
+.Container1 .Button, .Container2 .Button, .Container3 .Button, .Container4 .Button, .Container5 .Button {
+  background-color: #0a0a0a;
+  font-size: smaller;
+  border: 1px solid white;
+  width: 70px;
+  text-align: center;
+  border-radius: 10px;
+  transition: all 0.5s ease;    
+}
+
+.Container1 .Button:hover, .Container2 .Button:hover, .Container3 .Button:hover, .Container4 .Button:hover, .Container5 .Button:hover {
+  background-color: #0a0a0a;
+  font-size: smaller;
+  border: 0.5px solid green;
+  width: 70px;
+  text-align: center;
+  border-radius: 10px;
+  color: rgb(53, 255, 53);
+  cursor: pointer;
+}
+
+.Item1, .Item2, .Item3, .Item4 {
+  width: 17vw;
+  height: 20vh;
+  display: inline-flex;
+  padding: 5px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+  font-size: 23px;
+}
+
+.Item1 {
+  background-image: linear-gradient(to bottom right, #208cd4, #52d2f3);
+}
+
+.Item2 {
+  background-image: linear-gradient(to bottom right, #3d9682, #57d0ba);
+}
+
+.Item3 {
+  background-image: linear-gradient(to bottom right, #d59434, #fabc4b);
+}
+
+.Item4 {
+  background-image: linear-gradient(to bottom right, #da434e, #f27581);
+}
+
+.Container5 {
+  margin-bottom: 50px; /* Add margin at the bottom */
+  color: white;
+  font-family: 'Sofia Sans Semi Condensed', sans-serif;
+}
+
+#page-wrapper{
+    position: relative;
+    width: 100%;
+}
+#explore-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 9999; /* Ensure it's above other elements */
+  padding: 15px 30px; /* Adjusted padding */
+  font-size: 16px; /* Increased font size */
+  background-color: gray;
+  color: #fff;
+  border: none;
+  font-size: 2em;
+  border-radius: 8px; /* Adjusted border radius */
+  cursor: pointer;
+}

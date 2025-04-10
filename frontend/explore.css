@@ -1,0 +1,143 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: black; /* Consistent dark background */
+    color: #ccc; /* Light grey text for readability */
+    font-family: 'Arial', sans-serif; /* Clean, sans-serif font */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+h1.neon-text {
+    z-index: 1000;
+    color: #fff; /* White color for heading */
+    font-size: 2rem; /* Adjusted font size for elegance */
+    text-align: center; /* Center align the text */
+    margin: 0; /* No margin to ensure spacing is controlled */
+    padding: 40px 0; /* Padding to create space around the text */
+    background-color: #333; /* Darker background for the header */
+    width: 100%; /* Full width */
+    box-sizing: border-box; /* Include padding and borders in the width */
+}
+
+.navigation-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: auto; /* Enable scrolling if content exceeds viewport */
+    padding: 20px; /* Add padding to keep content away from edges */
+    box-sizing: border-box; /* Include padding and borders in the width */
+}
+
+.nav-section {
+    background-color: #252526; /* Dark gray background */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    flex-grow: 1;
+    margin: 10px;
+    min-width: 300px;
+    max-width: 400px;
+    height: 500px; /* Fixed height for each section */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    box-sizing: border-box; /* Include padding and borders in the width */
+}
+
+.nav-section:hover {
+    transform: scale(1.03);
+}
+
+.nav-title {
+    background-color: #007acc; /* Dark blue */
+    color: #ffffff; /* White text */
+    padding: 15px;
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.nav-items {
+    list-style-type: none;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto; /* Scroll inside the container if content overflows */
+    flex-grow: 1;
+}
+
+.nav-items li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #333; /* Dark gray border */
+    color: #ccc; /* Light gray text */
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.nav-items li:hover {
+    background-color: #007acc; /* Dark blue */
+    color: #ffffff; /* White text */
+    cursor: pointer;
+}
+
+/* Scrollbar styling */
+.nav-items::-webkit-scrollbar {
+    width: 5px;
+}
+
+.nav-items::-webkit-scrollbar-track {
+    background: #202122; /* Dark gray */
+}
+
+.nav-items::-webkit-scrollbar-thumb {
+    background: #555; /* Medium gray */
+}
+
+.nav-items::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Light gray on hover */
+}
+
+/* Existing styles remain unchanged */
+
+@media (hover: hover) {
+    .nav-items::-webkit-scrollbar {
+        width: 5px; /* Narrow scrollbar for non-intrusive scrolling */
+    }
+
+    .nav-items::-webkit-scrollbar-track {
+        background: #202122; /* Dark track to maintain the overall dark theme */
+    }
+
+    .nav-items::-webkit-scrollbar-thumb {
+        background: #555; /* Medium gray thumb for contrast */
+    }
+
+    .nav-items::-webkit-scrollbar-thumb:hover {
+        background: #777; /* Lighter gray on hover for visual feedback */
+    }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 576px) {
+    .navigation-container {
+        margin-top: 0; /* Adjusted to 0 for mobile */
+        height: calc(100vh - 60px); /* Height minus header and padding */
+    }
+}
+
+    .navigation-container {
+        height: calc(100vh - 60px); /* Height minus header and padding */
+    }
+
+    .nav-section {
+        width: calc(100% - 20px); /* Full width minus padding for edge-to-edge design */
+    }
+
+    .nav-items li {
+        padding: 10px 15px; /* Slightly smaller padding for more screen real estate */
+    }
+}
